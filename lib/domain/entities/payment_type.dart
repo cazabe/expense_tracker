@@ -1,5 +1,8 @@
-class PaymentName {
+class PaymentType {
+  final int id;
   final String paymentName;
+  final String status;
 
-  PaymentName({required this.paymentName});
+  PaymentType(
+      {required this.id, required this.status, required this.paymentName});
 }

@@ -1,4 +1,7 @@
 class ExpenseType {
+  final int id;
   final String expenseType;
-  ExpenseType({required this.expenseType});
+  final String status;
+  ExpenseType(
+      {required this.id, required this.status, required this.expenseType});
 }
