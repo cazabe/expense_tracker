@@ -13,9 +13,19 @@ class ExpenseDbDatasource extends ExpenseDataSource {
   Future<List<Expense>> getExpenses() async {
     final response = await dio.get('/expense');
     final expenseResponse = ExpenseDbResponse.fromJson(response.data);
-    final expenseData = ExpenseMapper.expenseToDbEntitty(expenseResponse);
-    print(expenseData);
-    return response.data;
-    // final List<Expense> expenses = expenseResponse;
+    final List<Expense> expenses = expenseResponse.expenses
+        .map(
+          (expenseDb) => ExpenseMapper.expenseToDbEntitty(expenseDb),
+        )
+        .toList();
+    return expenses;
   }
 }
+
+// final movbieDbResponse = MovieDbResponse.fromJson(response.data);
+//     final List<Movie> movies = movbieDbResponse.results
+//         .where((movieDb) => movieDb.posterPath != 'no poster')
+//         .map(
+//           (movieDb) => MovieMapper.movieDbToEntitty(movieDb),
+//         )
+//         .toList();
