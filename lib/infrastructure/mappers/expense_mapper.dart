@@ -20,6 +20,7 @@ class ExpenseMapper {
           id: expensedb.user.id,
           status: expensedb.user.status,
           name: expensedb.user.name,
+          token: expensedb.user.token,
           username: expensedb.user.username));
 }
 

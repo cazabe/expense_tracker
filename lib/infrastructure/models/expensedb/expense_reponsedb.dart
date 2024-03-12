@@ -114,6 +114,7 @@ class UserDb {
   String username;
   String password;
   String status;
+  String token;
 
   UserDb({
     required this.id,
@@ -121,6 +122,7 @@ class UserDb {
     required this.username,
     required this.password,
     required this.status,
+    required this.token,
   });
 
   factory UserDb.fromJson(Map<String, dynamic> json) => UserDb(
@@ -129,6 +131,7 @@ class UserDb {
         username: json["username"],
         password: json["password"],
         status: json["status"],
+        token: json["token"],
       );
 
   Map<String, dynamic> toJson() => {
